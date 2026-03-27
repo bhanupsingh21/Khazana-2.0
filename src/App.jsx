@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MobileNav from './components/MobileNav';
-import Cursor from './components/Cursor';
+
 import VideoModal from './components/VideoModal';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -66,7 +66,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <RevealObserver />
-      <Cursor />
+
       <Navbar onToggleMobile={() => setMobileOpen(!mobileOpen)} />
       <MobileNav isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
 
