@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const About = () => {
   return (
     <section id="about">
-      <div className="section-inner" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
+      <div className="section-inner" style={{ paddingTop: '120px', paddingBottom: '80px' }}>
         <div className="section-header reveal">
           <div className="section-eyebrow">Our Story</div>
           <h2 className="section-title">Where <em>Ghazal</em> Meets Compassion</h2>
@@ -38,14 +38,14 @@ const About = () => {
           </div>
         </div>
 
-        <div className="about-hunt reveal" style={{ marginTop: '160px' }}>
+        <div className="about-hunt reveal" style={{ marginTop: '100px' }}>
           <div>
             <div className="section-eyebrow" style={{ justifyContent: 'flex-start' }}>The Talent Hunt</div>
             <h3 className="hunt-title">Find Your Stage. <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Sing with Legends.</em></h3>
             <p className="hunt-text">KHAZANA ARTIST ALOUD TALENT HUNT is a unique, Pan-India talent hunt that seeks to amalgamate the magic of Ghazals. Winners get an exclusive chance to perform with legends like Talat Aziz, Anup Jalota, Rekha Bhardwaj, Sudeep Banerjee and many more.</p>
             <br />
             <Link to="/entries" className="btn-primary" style={{ display: 'inline-flex', marginTop: '16px' }}>
-              <span>Enter the Hunt</span>
+              <span>Enter the Talent Hunt</span>
             </Link>
           </div>
           <div className="hunt-infographic">

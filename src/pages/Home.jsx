@@ -9,9 +9,9 @@ import Partners from '../components/Partners';
 const Home = ({ onOpenModal }) => {
   return (
     <>
-      <Hero onOpenModal={onOpenModal} />
-      <ThemeSong onOpenModal={onOpenModal} />
+      <Hero />
       <Founders />
+      <ThemeSong onOpenModal={onOpenModal} />
       <About />
       <Jury />
       <Partners />

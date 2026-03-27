@@ -119,7 +119,7 @@
     position: fixed;
     top: 0;
     left: 50%;
-    z-index: 100;
+    z-index: 1000;
     transform: translateX(-50%);
     width: 100%;
     padding: 0 5%;
@@ -130,15 +130,24 @@
     background: linear-gradient(180deg, rgba(10, 8, 6, 0.95) 0%, transparent 100%);
     backdrop-filter: blur(12px) saturate(1.2);
     border-bottom: 1px solid rgba(201, 168, 76, 0.08);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                gap 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-radius: 0;
     border: 1px solid transparent;
-    /* Prepare for border change */
+    will-change: width, border-radius, top;
   }
 
   nav.scrolled {
     top: 24px;
     width: fit-content;
+    max-width: 92vw;
     height: 68px;
     padding: 0 24px 0 32px;
     background: rgba(14, 12, 10, 0.85);
@@ -174,6 +183,7 @@
     align-items: center;
     gap: 36px;
     list-style: none;
+    flex-wrap: nowrap;
   }
 
   .nav-links a {
@@ -185,6 +195,7 @@
     text-transform: uppercase;
     position: relative;
     transition: color 0.3s ease;
+    white-space: nowrap;
   }
 
   .nav-links a::after {
@@ -216,6 +227,8 @@
     font-size: 0.8rem !important;
     letter-spacing: 0.14em !important;
     transition: background 0.3s ease, color 0.3s ease !important;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .nav-cta:hover {
@@ -244,13 +257,105 @@
   }
 
   /* ─── HERO ─── */
-  #hero {
+  .hero-figma-banner {
     position: relative;
-    min-height: 100vh;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #0c231f;
+    line-height: initial;
+  }
+
+  /* Full-bleed background */
+  .hero-figma-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+  }
+
+  /* Stacked content wrapper */
+  .hero-figma-content {
+    position: absolute;
+    inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    pointer-events: none;
+  }
+
+  /* Khazana banner logo */
+  .hero-figma-logo-wrap {
+    width: 18%;
+    flex-shrink: 0;
+  }
+
+  .hero-figma-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Center decorative element */
+  .hero-figma-center {
+    width: 52%;
+    flex-shrink: 0;
+    transform: translateX(6%);
+  }
+
+  .hero-figma-center-element {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Powered by bar */
+  .hero-figma-bottom-bar {
+    width: 24%;
+    flex-shrink: 0;
+  }
+
+  .hero-figma-powered-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ─── Mobile ─── */
+  @media (max-width: 768px) {
+    .hero-figma-banner {
+      aspect-ratio: 4 / 5;
+    }
+
+    .hero-figma-logo-wrap {
+      width: 42%;
+    }
+
+    .hero-figma-center {
+      width: 80%;
+    }
+
+    .hero-figma-bottom-bar {
+      width: 58%;
+    }
+  }
+
+  /* Keep old #hero alias */
+  #hero {
+    position: relative;
+    width: 100%;
     overflow: hidden;
+  }
+
+  .hero-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .hero-bg {
@@ -647,7 +752,7 @@
 
   /* ─── THEME SONG BANNER ─── */
   #theme-song {
-    padding: 40px 0 0;
+    padding: 26px 0;
   }
 
   .theme-song-strip {
@@ -729,7 +834,7 @@
 
   /* ─── FOUNDERS ─── */
   #founders {
-    padding: 120px 0;
+    padding: 26px 0;
   }
 
   .founders-grid {
@@ -858,7 +963,7 @@
 
   /* ─── ABOUT ─── */
   #about {
-    padding: 120px 0;
+    padding: 26px 0;
     background: var(--dark-2);
   }
 
@@ -1032,7 +1137,7 @@
 
   /* ─── JURY ─── */
   #jury {
-    padding: 120px 0;
+    padding: 26px 0;
   }
 
   .jury-tabs {
@@ -1069,7 +1174,7 @@
 
   .jury-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap: 24px;
   }
@@ -1172,7 +1277,7 @@
   /* ─── POETRY JURY ─── */
   .poetry-jury-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 500px));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 560px));
     justify-content: center;
     gap: 32px;
   }
@@ -1243,7 +1348,7 @@
 
   /* ─── PARTNERS ─── */
   #partners {
-    padding: 100px 0;
+    padding: 26px 0;
     background: var(--dark-2);
   }
 
@@ -1259,13 +1364,11 @@
     padding: 24px 40px;
     border: 1px solid rgba(201, 168, 76, 0.1);
     border-radius: 16px;
-    filter: grayscale(100%) brightness(0.7);
-    transition: filter 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
+    transition: border-color 0.4s ease, transform 0.3s ease;
     cursor: default;
   }
 
   .partner-item:hover {
-    filter: grayscale(0%) brightness(1);
     border-color: rgba(201, 168, 76, 0.3);
     transform: translateY(-2px);
   }
@@ -1281,7 +1384,7 @@
   footer {
     background: radial-gradient(ellipse at bottom, rgba(167, 125, 77, 0.15) 0%, var(--dark) 70%);
     border-top: 1px solid rgba(201, 168, 76, 0.1);
-    padding: 60px 5% 40px;
+    padding: 26px 5% 40px;
   }
 
   .footer-inner {

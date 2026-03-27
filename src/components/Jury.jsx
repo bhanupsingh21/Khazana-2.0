@@ -4,7 +4,7 @@ const Jury = () => {
   const [activeTab, setActiveTab] = useState('singing');
 
   return (
-    <section id="jury" style={{ padding: '120px 0' }}>
+    <section id="jury" style={{ padding: '80px 0' }}>
       <div className="section-inner">
         <div className="section-header reveal">
           <div className="section-eyebrow">Luminaries</div>

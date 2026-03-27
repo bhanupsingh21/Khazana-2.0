@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logoImg from '../logo.png';
+import logoImg from '../assets/logo.png';
 
 const Navbar = ({ onToggleMobile }) => {
   const [scrolled, setScrolled] = useState(false);
