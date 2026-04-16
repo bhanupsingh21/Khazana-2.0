@@ -754,81 +754,80 @@
     padding: 26px 0;
   }
 
-  .theme-song-strip {
-    background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-4) 60%, var(--maroon) 100%);
-    border-top: 1px solid rgba(201, 168, 76, 0.15);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
-    padding: 28px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .theme-song-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .music-wave {
-    display: flex;
-    align-items: flex-end;
-    gap: 3px;
-    height: 24px;
-  }
-
-  .wave-bar {
-    width: 3px;
-    background: var(--gold);
-    border-radius: 16px;
-    animation: wave var(--d, 0.8s) var(--delay, 0s) ease-in-out infinite alternate;
-  }
-
-  @keyframes wave {
-    from {
-      height: 4px;
-    }
-
-    to {
-      height: var(--h, 20px);
-    }
-  }
-
-  .theme-song-info h3 {
-    font-family: var(--font-title);
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: var(--gold-light);
-  }
-
-  .theme-song-info p {
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-
-  .btn-play-song {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 28px;
-    background: rgba(201, 168, 76, 0.12);
-    border: 1px solid rgba(201, 168, 76, 0.4);
-    color: var(--gold-light);
-    text-decoration: none;
-    font-size: 0.82rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    border-radius: 100px;
-    transition: background 0.3s ease;
+  .video-frame-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+    border-radius: 20px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    overflow: hidden;
     cursor: pointer;
-    font-family: var(--font-body);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   }
-
-  .btn-play-song:hover {
-    background: rgba(201, 168, 76, 0.2);
+  
+  .video-frame-container:hover {
+    transform: translateY(-8px);
+    border-color: rgba(201, 168, 76, 0.5);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(201, 168, 76, 0.15);
+  }
+  
+  .video-frame-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,8,6,0.8), rgba(10,8,6,0.2) 50%, rgba(10,8,6,0.6));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.4s ease;
+  }
+  
+  .video-frame-container:hover .video-frame-overlay {
+    background: linear-gradient(to top, rgba(10,8,6,0.5), rgba(10,8,6,0.1) 50%, rgba(10,8,6,0.3));
+  }
+  
+  .video-play-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(201, 168, 76, 0.15);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    padding-left: 6px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease, box-shadow 0.4s ease;
+    z-index: 2;
+  }
+  
+  .video-frame-container:hover .video-play-btn {
+    transform: scale(1.15);
+    background: rgba(201, 168, 76, 0.3);
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+  }
+  
+  .video-hover-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+  }
+  
+  .video-frame-container:hover .video-hover-glow {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5);
   }
 
   /* ─── FOUNDERS ─── */
@@ -853,7 +852,7 @@
     display: grid;
     grid-template-columns: 160px 1fr;
     gap: 40px;
-    align-items: start;
+    align-items: center;
   }
 
   .founder-card:first-child {
@@ -1178,6 +1177,10 @@
     gap: 24px;
   }
 
+  .jury-grid.jury-poetry {
+    grid-template-columns: repeat(2, calc((100% - 72px) / 4));
+  }
+
   .jury-card {
     position: relative;
     overflow: hidden;
@@ -1361,15 +1364,17 @@
 
   .partner-item {
     padding: 24px 40px;
-    border: 1px solid rgba(201, 168, 76, 0.1);
+    background: #ffffff;
+    border: 1px solid rgba(201, 168, 76, 0.15);
     border-radius: 16px;
-    transition: border-color 0.4s ease, transform 0.3s ease;
-    cursor: default;
+    transition: border-color 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
+    cursor: pointer;
   }
 
   .partner-item:hover {
-    border-color: rgba(201, 168, 76, 0.3);
-    transform: translateY(-2px);
+    border-color: rgba(201, 168, 76, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 15px rgba(201, 168, 76, 0.1);
   }
 
   .partner-item img {
@@ -1648,6 +1653,10 @@
       gap: 12px;
     }
 
+    .jury-grid.jury-poetry {
+      grid-template-columns: 1fr 1fr;
+    }
+
     .hunt-infographic {
       grid-template-columns: 1fr;
     }
@@ -1663,6 +1672,10 @@
 
   @media (max-width: 400px) {
     .jury-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .jury-grid.jury-poetry {
       grid-template-columns: 1fr;
     }
   }
@@ -2385,15 +2398,12 @@
   }
 
   /* ─── CARD EDGE DECORATION ─── */
-  .theme-song-strip,
   .about-hunt {
     position: relative;
     overflow: hidden;
   }
 
-  .theme-song-strip::before,
   .about-hunt::before,
-  .theme-song-strip::after,
   .about-hunt::after {
     content: '';
     position: absolute;
@@ -2407,21 +2417,18 @@
     z-index: 0;
   }
 
-  .theme-song-strip::before,
   .about-hunt::before {
     top: 0;
     -webkit-mask-image: linear-gradient(to bottom, black, transparent);
     mask-image: linear-gradient(to bottom, black, transparent);
   }
 
-  .theme-song-strip::after,
   .about-hunt::after {
     bottom: 0;
     -webkit-mask-image: linear-gradient(to top, black, transparent);
     mask-image: linear-gradient(to top, black, transparent);
   }
 
-  .theme-song-strip>*,
   .about-hunt>* {
     position: relative;
     z-index: 1;

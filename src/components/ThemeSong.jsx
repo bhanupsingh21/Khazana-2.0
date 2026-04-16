@@ -1,31 +1,23 @@
 import React from 'react';
 
 const ThemeSong = ({ onOpenModal }) => {
-  const waveStyles = [
-    {'--d':'0.7s','--delay':'0s','--h':'8px'},
-    {'--d':'0.9s','--delay':'0.15s','--h':'18px'},
-    {'--d':'0.6s','--delay':'0.05s','--h':'12px'},
-    {'--d':'1.1s','--delay':'0.2s','--h':'22px'},
-    {'--d':'0.8s','--delay':'0.1s','--h':'14px'}
-  ];
-
   return (
-    <section id="theme-song">
-      <div className="theme-song-strip">
-        <div className="theme-song-label">
-          <div className="music-wave">
-            {waveStyles.map((style, i) => (
-              <div key={i} className="wave-bar" style={style}></div>
-            ))}
-          </div>
-          <div className="theme-song-info">
-            <h3>Khazana Theme Song 2026</h3>
-            <p>Official Anthem · Penned by Ajay Sahaab</p>
+    <section id="theme-song" style={{ padding: '100px 0' }}>
+      <div className="section-inner" style={{ maxWidth: '1000px' }}>
+        <div className="section-header reveal">
+          <div className="section-eyebrow">Official Anthem</div>
+          <h2 className="section-title">Khazana Theme Song <em>2026</em></h2>
+          <p className="section-desc">Penned by Ajay Sahaab</p>
+        </div>
+        
+        <div className="video-frame-container reveal reveal-delay-1" onClick={onOpenModal}>
+          <div className="video-frame-overlay">
+            <div className="video-hover-glow"></div>
+            <button className="video-play-btn">
+              ▶
+            </button>
           </div>
         </div>
-        <button className="btn-play-song" onClick={onOpenModal}>
-          ▶ &nbsp; Play Now
-        </button>
       </div>
     </section>
   );

@@ -61,21 +61,25 @@ const Jury = () => {
         </div>
 
         {/* POETRY JURY */}
-        <div id="poetryPanel" className={`poetry-jury-grid ${activeTab === 'poetry' ? 'active' : 'panel-hidden'}`}>
-          <div className="poetry-card reveal">
-            <img className="poetry-card-img" src="https://legacy.hungamaartistaloud.com/khazana2025/images/aalok-Srivastava.png" alt="Aalok Shrivastav" onError={(e) => {e.target.outerHTML='<div class="poetry-card-placeholder">✍️</div>'}} />
-            <div>
-              <div className="poetry-card-name">Aalok Shrivastav</div>
-              <div className="poetry-card-role">Poet &amp; Lyricist</div>
-              <p className="poetry-card-text">Renowned Indian poet and lyricist whose ghazals have been brought to life by Jagjit Singh, A.R. Rahman, and Amitabh Bachchan. Author of acclaimed works <em>Aameen</em> and <em>Afreen</em>, and recipient of the International Pushkin Award and Dushyant Kumar Award.</p>
+        <div id="poetryPanel" className={`jury-grid jury-poetry ${activeTab === 'poetry' ? '' : 'panel-hidden'}`}>
+          <div className="jury-card reveal">
+            <div className="jury-card-img-wrap">
+              <img src="https://legacy.hungamaartistaloud.com/khazana2025/images/aalok-Srivastava.png" alt="Aalok Shrivastav" onError={(e) => {e.target.parentNode.innerHTML='<div class="jury-placeholder">✍️</div>'}} />
+              <div className="jury-card-overlay">
+                <div className="jury-card-name">Aalok Shrivastav</div>
+                <div className="jury-card-title">Poet &amp; Lyricist</div>
+                <p className="jury-card-bio">Renowned Indian poet and lyricist whose ghazals have been brought to life by Jagjit Singh, A.R. Rahman, and Amitabh Bachchan. Author of acclaimed works <em>Aameen</em> and <em>Afreen</em>, and recipient of the International Pushkin Award and Dushyant Kumar Award.</p>
+              </div>
             </div>
           </div>
-          <div className="poetry-card reveal reveal-delay-2">
-            <img className="poetry-card-img" src="https://legacy.hungamaartistaloud.com/khazana2025/images/ajay-Sahaab.png" alt="Ajay Sahaab" onError={(e) => {e.target.outerHTML='<div class="poetry-card-placeholder">✍️</div>'}} />
-            <div>
-              <div className="poetry-card-name">Ajay Sahaab</div>
-              <div className="poetry-card-role">Poet &amp; Lyricist</div>
-              <p className="poetry-card-text">Celebrated modern Urdu poet whose soulful ghazals have been composed by legends like Jagjit Singh, Pankaj Udhas, Anup Jalota, and Rekha Bhardwaj. Author of the poetry collection <em>Ummeed</em> and penner of Khazana's own theme songs.</p>
+          <div className="jury-card reveal reveal-delay-2">
+            <div className="jury-card-img-wrap">
+              <img src="https://legacy.hungamaartistaloud.com/khazana2025/images/ajay-Sahaab.png" alt="Ajay Sahaab" onError={(e) => {e.target.parentNode.innerHTML='<div class="jury-placeholder">✍️</div>'}} />
+              <div className="jury-card-overlay">
+                <div className="jury-card-name">Ajay Sahaab</div>
+                <div className="jury-card-title">Poet &amp; Lyricist</div>
+                <p className="jury-card-bio">Celebrated modern Urdu poet whose soulful ghazals have been composed by legends like Jagjit Singh, Pankaj Udhas, Anup Jalota, and Rekha Bhardwaj. Author of the poetry collection <em>Ummeed</em> and penner of Khazana's own theme songs.</p>
+              </div>
             </div>
           </div>
         </div>

@@ -5,8 +5,16 @@ const editions = [
     year: 2025, 
     label: 'Khazana 2025', 
     status: '8th Edition',
-    winners: [],
-    performers: ["Pankaj Udhas", "Anup Jalota", "Talat Aziz", "Rekha Bhardwaj", "Javed Ali", "Sudeep Banerji"] // placeholder
+    winners: [
+      { name: "Hetvi Sethia", location: "Winner", img: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=400&auto=format&fit=crop" },
+      { name: "Saleem Raja", location: "Winner", img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=400&auto=format&fit=crop" },
+      { name: "Fareed Ahmed Khan", location: "Winner", img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=400&auto=format&fit=crop" },
+      { name: "Manaswi Pandey", location: "Kids Category", img: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=400&auto=format&fit=crop" },
+      { name: "Uday Divakar Pandey", location: "Poet Category", img: "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=400&auto=format&fit=crop" },
+      { name: "Vipul Kumar Ruhela", location: "Special Mention", img: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&auto=format&fit=crop" },
+      { name: "Minatullah Khan", location: "Special Mention", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&auto=format&fit=crop" }
+    ],
+    performers: ["Anup Jalota", "Talat Aziz", "Rekha Bhardwaj", "Sudeep Banerji", "Osman Mir & Aamir Mir", "Pt. Ajay Pohankar & Abhijit Pohankar", "Mahalaxmi Iyer", "Pratibha Singh Baghel", "Kalpana Gandharv", "Himanshu Sharma", "Barnali Chattopadhyay", "Rakesh Chaurasia", "Ojas Adhiya", "Sanjoy Das", "Shikhar Naad Qureshi"]
   },
   { 
     year: 2024, 

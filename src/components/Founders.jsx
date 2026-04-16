@@ -15,7 +15,7 @@ const Founders = () => {
               <img src="https://legacy.hungamaartistaloud.com/khazana2025/images/pankaj-udhas.png" alt="Pankaj Udhas" onError={(e) => {e.target.style.display='none'}} />
             </div>
             <div className="founder-body">
-              <div className="founder-number">01</div>
+
               <div className="founder-name">Pankaj Udhas</div>
               <div className="founder-role">Padma Bhushan &nbsp;·&nbsp; Past President</div>
               <div className="founder-org">Parents Association Thalassemic Unit Trust (PATUT)</div>
@@ -27,7 +27,7 @@ const Founders = () => {
               <img src="https://legacy.hungamaartistaloud.com/khazana2025/images/sapru.png" alt="Y.K. Sapru" onError={(e) => {e.target.style.display='none'}} />
             </div>
             <div className="founder-body">
-              <div className="founder-number">02</div>
+
               <div className="founder-name">Y. K. Sapru</div>
               <div className="founder-role">Founder Chairman</div>
               <div className="founder-org">Cancer Patients Aid Association (CPAA)</div>
