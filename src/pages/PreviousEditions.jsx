@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const editions = [
   { 
@@ -208,9 +209,9 @@ const PreviousEditions = () => {
             <p className="section-desc" style={{ marginBottom: '32px' }}>
               The 9th Edition is here. Be part of the legacy.
             </p>
-            <a href="/entries" className="btn-primary">
+            <Link to={localStorage.getItem('khazanaUser') ? '/dashboard' : '/login'} className="btn-primary" style={{ display: 'inline-block' }}>
               <span>Submit Your Entry for 2026</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

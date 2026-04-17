@@ -44,7 +44,7 @@ const About = () => {
             <h3 className="hunt-title">Find Your Stage. <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Sing with Legends.</em></h3>
             <p className="hunt-text">KHAZANA ARTIST ALOUD TALENT HUNT is a unique, Pan-India talent hunt that seeks to amalgamate the magic of Ghazals. Winners get an exclusive chance to perform with legends like Talat Aziz, Anup Jalota, Rekha Bhardwaj, Sudeep Banerjee and many more.</p>
             <br />
-            <Link to="/entries" className="btn-primary" style={{ display: 'inline-flex', marginTop: '16px' }}>
+            <Link to={localStorage.getItem('khazanaUser') ? '/dashboard' : '/login'} className="btn-primary" style={{ display: 'inline-flex', marginTop: '16px' }}>
               <span>Enter the Talent Hunt</span>
             </Link>
           </div>
