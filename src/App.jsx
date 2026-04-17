@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import PreviousEditions from './pages/PreviousEditions';
 import Entries from './pages/Entries';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
 import ScrollUpButton from './components/ScrollUpButton';
@@ -75,6 +76,7 @@ function App() {
         <Route path="/previous-editions" element={<PreviousEditions />} />
         <Route path="/entries" element={<Entries />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

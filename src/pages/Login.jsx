@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [agreed, setAgreed] = useState(false);
@@ -23,7 +24,8 @@ const Login = () => {
     setError('');
     if (!otp.trim() || otp.length < 4) { setError('Please enter a valid OTP.'); return; }
     // In production, this would verify OTP via API
-    alert('Registration successful! Welcome to Khazana 2026.');
+    localStorage.setItem('khazanaUser', JSON.stringify({ name, phone }));
+    navigate('/dashboard');
   };
 
   return (

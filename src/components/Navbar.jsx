@@ -7,6 +7,12 @@ const Navbar = ({ onToggleMobile }) => {
   const location = useLocation();
   const isHome = location.pathname === '/';
   const [activeHash, setActiveHash] = useState('');
+  const isLoggedIn = !!localStorage.getItem('khazanaUser');
+
+  const handleLogout = () => {
+    localStorage.removeItem('khazanaUser');
+    window.location.href = '/';
+  };
 
   useEffect(() => {
     setActiveHash(location.hash);
@@ -50,7 +56,11 @@ const Navbar = ({ onToggleMobile }) => {
         ) : (
           <li className="hide-on-scroll"><Link to="/#partners" className={isActive('/', '#partners') ? 'active-link' : ''}>Partners</Link></li>
         )}
-        <li><Link to="/login" className={`nav-cta ${isActive('/login') ? 'active-link' : ''}`}>Register / Login</Link></li>
+        {isLoggedIn ? (
+          <li><button onClick={handleLogout} className="nav-cta" style={{ background: 'transparent', border: '1px solid var(--gold)', cursor: 'pointer', fontFamily: 'inherit' }}>Logout</button></li>
+        ) : (
+          <li><Link to="/login" className={`nav-cta ${isActive('/login') ? 'active-link' : ''}`}>Register / Login</Link></li>
+        )}
       </ul>
       <div className="nav-hamburger" id="hamburger" onClick={onToggleMobile}>
         <span></span><span></span><span></span>
