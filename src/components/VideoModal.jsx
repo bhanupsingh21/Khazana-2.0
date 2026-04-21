@@ -29,7 +29,7 @@ const VideoModal = ({ isOpen, onClose }) => {
     }}>
       <div className="modal-content">
         <button className="modal-close" onClick={onClose}>✕ &nbsp; Close</button>
-        <video id="modalVideo" ref={videoRef} controls>
+        <video id="modalVideo" ref={videoRef} controls preload="auto" playsInline>
           <source src="https://legacy.hungamaartistaloud.com/khazana2025/images/Khazana-Theme-Song-2025.mp4" type="video/mp4" />
         </video>
       </div>

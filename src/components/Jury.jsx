@@ -9,7 +9,7 @@ const Jury = () => {
         <div className="section-header reveal">
           <div className="section-eyebrow">Luminaries</div>
           <h2 className="section-title">The <em>Jury</em></h2>
-          <p className="section-desc">India's most celebrated voices in ghazal and Urdu poetry come together to discover the next generation of talent.</p>
+          <p className="section-desc">India's most celebrated voices in Ghazal and Urdu poetry come together to discover the next generation of talent.</p>
         </div>
         <div className="jury-tabs">
           <button className={`jury-tab ${activeTab === 'singing' ? 'active' : ''}`} onClick={() => setActiveTab('singing')}>Singing Jury</button>

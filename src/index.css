@@ -4,11 +4,11 @@
     --gold-light: #E8C97A;
     --gold-pale: #F5E6C0;
 
-    /* ─── Warm Dark Backgrounds (earthy, no purple) ─── */
-    --dark: #0A0806;
-    --dark-2: #100D0A;
-    --dark-3: #1A1410;
-    --dark-4: #241C16;
+    /* ─── Deep Teal Backgrounds (New Theme) ─── */
+    --dark: #071412;
+    --dark-2: #0A1E1A;
+    --dark-3: #0D2823;
+    --dark-4: #12362F;
 
     /* ─── Rich Burgundy/Crimson (warm, like the reference) ─── */
     --maroon: #A77D4D;
@@ -126,7 +126,7 @@
     align-items: center;
     justify-content: space-between;
     height: 76px;
-    background: linear-gradient(180deg, rgba(10, 8, 6, 0.95) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(7, 20, 18, 0.95) 0%, transparent 100%);
     backdrop-filter: blur(12px) saturate(1.2);
     border-bottom: 1px solid rgba(201, 168, 76, 0.08);
     transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
