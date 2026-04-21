@@ -4,6 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 const MobileNav = ({ isOpen, onClose }) => {
   const location = useLocation();
   const [activeHash, setActiveHash] = useState('');
+  const isLoggedIn = !!localStorage.getItem('khazanaUser');
+
+  const handleLogout = () => {
+    localStorage.removeItem('khazanaUser');
+    window.location.href = '/';
+  };
 
   useEffect(() => {
     setActiveHash(location.hash);
@@ -24,7 +30,14 @@ const MobileNav = ({ isOpen, onClose }) => {
       <Link to="/previous-editions" onClick={onClose} className={isActive('/previous-editions') ? 'active-link' : ''}>Previous Editions</Link>
       <Link to="/entries" onClick={onClose} className={isActive('/entries') ? 'active-link' : ''}>Entries</Link>
       <a href="/#partners" onClick={onClose} className={isActive('/', '#partners') ? 'active-link' : ''}>Partners</a>
-      <Link to="/login" onClick={onClose} className={isActive('/login') ? 'active-link' : ''}>Register / Login</Link>
+      {isLoggedIn ? (
+        <>
+          <Link to="/dashboard" onClick={onClose} className={isActive('/dashboard') ? 'active-link' : ''}>Dashboard</Link>
+          <a href="#" onClick={(e) => { e.preventDefault(); handleLogout(); onClose(); }}>Logout</a>
+        </>
+      ) : (
+        <Link to="/login" onClick={onClose} className={isActive('/login') ? 'active-link' : ''}>Register / Login</Link>
+      )}
     </div>
   );
 };

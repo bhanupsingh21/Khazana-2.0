@@ -57,7 +57,10 @@ const Navbar = ({ onToggleMobile }) => {
           <li className="hide-on-scroll"><Link to="/#partners" className={isActive('/', '#partners') ? 'active-link' : ''}>Partners</Link></li>
         )}
         {isLoggedIn ? (
-          <li><button onClick={handleLogout} className="nav-cta" style={{ background: 'transparent', border: '1px solid var(--gold)', cursor: 'pointer', fontFamily: 'inherit' }}>Logout</button></li>
+          <>
+            <li><Link to="/dashboard" className={isActive('/dashboard') ? 'active-link' : ''}>Dashboard</Link></li>
+            <li><button onClick={handleLogout} className="nav-cta" style={{ background: 'transparent', border: '1px solid var(--gold)', cursor: 'pointer', fontFamily: 'inherit' }}>Logout</button></li>
+          </>
         ) : (
           <li><Link to="/login" className={`nav-cta ${isActive('/login') ? 'active-link' : ''}`}>Register / Login</Link></li>
         )}
